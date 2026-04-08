@@ -1,0 +1,79 @@
+[Bài tập] Hệ thống Quản lý Đăng ký Môn học Đại học
+
+câu 1:
+Thực thể sinh viên:
+Mã sinh viên – khóa chính,
+Họ tên,
+Ngày sinh,
+Giới tính,
+Emai,
+Khoa;
+Thực thể môn học:
+Mã môn-khóa chính,
+Tên môn,
+Số tín chỉ,
+Khoa phụ trách;
+Thức thể giảng viên:
+ Mã giảng viên-khóa chính,
+Họ tên,
+Học vị,
+Email,
+Khoa;
+Thực thể lớp học phần:
+Mã lớp học phần-khóa chính,
+Học kỳ,
+Năm học,
+Phòng học;
+Thực thể đăng kí:
+Mã đăng kí-khóa chính,
+Mã sinh viên-khóa ngoại,
+Mã học phần-khóa ngoại;
+Câu 2:
+Môn học – Lớp học phần:
+ Một Môn học có thể mở nhiều Lớp học phần
+  Quan hệ: 1–N
+Giảng viên – Lớp học phần
+  Một Giảng viên có thể dạy nhiều Lớp học phần
+ Một Lớp học phần chỉ có một giảng viên chính
+ Quan hệ: 1–N
+  Sinh viên – Lớp học phần (qua Đăng ký)
+  Một Sinh viên có thể đăng ký nhiều Lớp học phần
+  Quan hệ: N–N
+ Được biểu diễn bằng thực thể trung gian Đăng ký 
+ 
+câu 4:
+Sinh viên 
+Khóa chính (PK): mã sinh viên
+Thuộc tính: họ tên, ngày sinh, giới tính, email, khoa
+Khóa ngoại (FK): không có
+Thuộc tính đa trị: không có (email chỉ 1 giá trị)
+Môn học 
+Khóa chính (PK): mã môn
+Thuộc tính: tên môn, số tín chỉ, khoa phụ trách
+Khóa ngoại (FK): không có
+Thuộc tính đa trị: không có
+Giảng viên 
+Khóa chính (PK): mã giảng viên
+Thuộc tính: họ tên, học vị, email, khoa
+Khóa ngoại (FK): không có
+Thuộc tính đa trị: không có
+Lớp học phần 
+Khóa chính (PK): mã học phần
+Thuộc tính: học kỳ, năm học, phòng học
+Khóa ngoại (FK):
+Mã môn -> tham chiếu đến Course
+Mã giảng viên -> tham chiếu đến Instructor
+Thuộc tính đa trị: không có
+Đăng ký 
+Khóa chính (PK): mã đăng kí
+Thuộc tính: ngày đăng ký, trạng thái (tùy chọn)
+Khóa ngoại (FK):
+Mã sinh viên → tham chiếu đến sinh viên
+Mã học phần → tham chiếu đến lớp học phần
+Thuộc tính đa trị: không có
+
+
+
+
+
+
