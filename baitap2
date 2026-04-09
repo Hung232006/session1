@@ -1,0 +1,36 @@
+1. xác định thực thể:
+-thực thể khách hàng:
+mã khánh hàng-khóa chính,
+họ tên,
+email,
+sđt,
+địa chỉ;
+-thực thể khách hàng:
+mã sản phẩm-khóa chính,
+tên sản phẩm,
+giá sản phẩm,
+mô tả,
+loại hàng;
+-thực thể đơn hàng:
+mã đơn hàng-khóa chính,
+ngày đặt,
+tổng tiền,
+trạng thái,
+mã khách hàng-khóa phụ ->khách hàng,
+mã nhân viên-khóa ohuj->nhân viên,
+-chi tiết đơn hàng:
+mã đơn hàng-khóa phụ->đơn hàng,
+mã sản phậm-khóa phụ->sản phẩm,
+số lượng,
+đơn giá tại thời điểm mua;
+-nhân viên:
+mã nhân viên-khóa chính,
+họ tên,
+vị trí,
+ngày vào làm;
+2.xác định mỗi quan hệ:
+-Khách hàng – Đơn hàng: 1–n (một khách hàng có thể đặt nhiều đơn hàng)
+-Đơn hàng – Chi tiết đơn hàng – Sản phẩm: n–n (một đơn hàng chứa nhiều sản phẩm, một sản phẩm có thể nằm trong nhiều đơn hàng) giải quyết bằng bảng trung gian OrderDetail
+-Nhân viên – Đơn hàng: 1–n (một nhân viên xử lý nhiều đơn hàng, nhưng mỗi đơn hàng gắn với một nhân viên)
+3. biểu đồ ERD
+(...)
