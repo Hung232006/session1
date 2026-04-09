@@ -1,0 +1,77 @@
+ 1: Xác định các thực thể và thuộc tính chính trong hệ thống quản lý đặt phòng khách sạn
+-Khách sạn
+Mã khách sạn
+Tên khách sạn
+Địa chỉ
+Số sao
+Thông tin liên hệ
+-Phòng
+Mã phòng
+Số phòng
+Loại phòng (Standard, Deluxe, Suite…)
+Giá phòng
+Tình trạng (Còn trống/Đã đặt)
+Mã khách sạn (khóa ngoại)
+-Khách hàng
+Mã khách hàng
+Họ tên
+Email
+Số điện thoại
+Địa chỉ
+-Đặt phòng
+Mã đặt phòng
+Ngày đặt
+Ngày nhận phòng
+Ngày trả phòng
+Trạng thái (Đang xử lý, Hoàn tất, Hủy)
+Tổng tiền
+Mã khách hàng (khóa ngoại)
+-Chi tiết đặt phòng (bảng trung gian giữa Đặt phòng và Phòng)
+Mã đặt phòng (khóa ngoại)
+Mã phòng (khóa ngoại)
+Giá phòng tại thời điểm đặt
+Số lượng khách
+-Thanh toán
+Mã thanh toán
+Ngày thanh toán
+Số tiền thanh toán
+Phương thức thanh toán (Tiền mặt, Thẻ, Chuyển khoản)
+Mã đặt phòng (khóa ngoại)
+-Đánh giá
+Mã đánh giá
+Nội dung đánh giá
+Điểm số
+Ngày đăng
+Mã khách hàng (khóa ngoại)
+Mã khách sạn (khóa ngoại)
+
+
+
+
+2.Mô tả các mối quan hệ giữa các thực thể trong hệ thống quản lý đặt phòng khách sạn
+Khách sạn – Phòng: Một khách sạn có nhiều phòng (1–n).
+Khách hàng – Đặt phòng: Một khách hàng có thể có nhiều đặt phòng (1–n).
+Đặt phòng – Phòng: Một đặt phòng có thể gồm nhiều phòng, và một phòng có thể thuộc nhiều đặt phòng khác nhau  quan hệ n–n, được giải quyết bằng bảng trung gian Chi tiết đặt phòng.
+Đặt phòng – Thanh toán: Một đặt phòng gắn với một thanh toán (1–1). Nếu hệ thống cho phép trả nhiều lần thì quan hệ sẽ là 1–n.
+Khách hàng – Đánh giá – Khách sạn: Một khách hàng có thể viết nhiều đánh giá cho các khách sạn (1–n từ Khách hàng sang Đánh giá). Mỗi đánh giá gắn với một khách sạn cụ thể.
+
+
+
+3.
+Trong hệ thống quản lý đặt phòng khách sạn, mối quan hệ giữa Đặt phòng (Booking) và Phòng (Room) là n–n:
+Một đặt phòng có thể bao gồm nhiều phòng.
+Một phòng cũng có thể xuất hiện trong nhiều đặt phòng khác nhau (ví dụ: phòng được đặt nhiều lần ở các thời điểm khác nhau).
+Vì vậy, cần có một thực thể trung gian để quản lý mối quan hệ này, thường gọi là Chi tiết đặt phòng (BookingRoom).
+Chi tiết đặt phòng sẽ có các thuộc tính:
+Mã đặt phòng (khóa ngoại từ Booking)
+Mã phòng (khóa ngoại từ Room)
+Ngày nhận phòng
+Ngày trả phòng
+Giá phòng tại thời điểm đặt
+Số lượng khách
+
+4.
+Với mọi cặp đặt phòng (BookingRoom1, BookingRoom2):
+    Nếu BookingRoom1.RoomID = BookingRoom2.RoomID
+    Thì (BookingRoom1.CheckOut <= BookingRoom2.CheckIn) 
+    Hoặc (BookingRoom2.CheckOut <= BookingRoom1.CheckIn)
